@@ -1,0 +1,162 @@
+pattern 1 : square : row = j
+1 2 3 
+1 2 3
+1 2 3
+
+using any  loop : logic : printing the same no as of row/coloum
+
+for(int i =1 ; i<=n ; i++){
+        for(int j= 1; j<=n ; j++){
+            cout<<j<<" ";
+        }
+        cout<<endl;
+    }
+}
+
+using while loop;
+int i=1;
+    while(i<=n){
+        int j=1;
+        while(j<=n){
+            cout<<j<<" ";
+            j++;
+        }
+        cout<<endl;
+        i++;
+    }
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+pattern 1 (b) :  reverse square : row = j
+321
+321
+321
+
+using any  loop : logic : printing the same no as of row/coloum but slight change here n-j+1
+
+way 1 : using for loop
+321
+321
+321
+for(int i=1; i<=n;i++){
+        for(int j=1; j<=n;j++){
+            cout<<n-j+1;
+        }
+        cout<<endl;
+    }
+
+
+way 2 : using while loop
+    
+    int i = 1;
+    while(i<=n){
+        int j=1;
+        while(j<=n){
+            cout<<n-j+1<<" ";
+            j++;
+        }
+        i++;
+        cout<<endl;
+
+    }*/
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   
+pattern 1(c) : square : different : printing no in increasing fashion
+1 2 3 
+4 5 6
+7 8  9
+
+LOGIC : take new variable as counter then increase counter and j simultaneously.
+
+
+way 1 : for loop: 
+int counter = 1 ;
+
+for(int i = 1 ; i<=n ; i++){
+        for(int j =1 ; j<=n ; j++){
+            cout<<counter<<" ";
+            counter++;
+            
+
+        }
+        cout<<endl;
+    }
+
+way 2 : while loop
+int counter = 1;
+    int i=1;
+    while(i<=n){
+        int j=1;
+        while(j<=n){
+            cout<<counter<<" ";
+            counter++;
+            j++;
+
+        }
+        i++;
+        cout<<endl;
+        
+    }
+   
+ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+pattern 1(d) : square : reverse order or descending order of 
+16 15 14 13
+12 11 10 9 
+8 7 6 5
+4 3 2 1
+
+LOGIC: TAKE SQUARE OF N = 4 THEN DECREASE IT ONE BY ONE.
+
+WAY 1 : using while loop 
+counter = n*n;
+    
+    int i=1;
+    while(i<=n){
+        int j=1;
+        while(j<=n){
+            cout<<counter<<" ";
+            counter--;
+            j++;
+
+        }
+        i++;
+        cout<<endl;
+        
+    }
+
+WAY 2 : using for loop
+for(int i =1 ; i<=n ; i++){
+        for(int j = 1 ; j<= n ; j++){
+            cout<<counter<<" ";
+            counter--;
+        }
+        cout<<endl;
+    }
+
+  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+pattern 1(e ): same no in square
+ 
+ 1 1 1 
+ 2 2 2 
+ 3 3 3
+ LOGIC : PRINTING I INSTEAD OF J
+ for(int i =1 ; i<=n ; i++){
+        for(int j= 1; j<=n ; j++){
+            cout<<i<<" ";
+        }
+        cout<<endl;
+    }
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+pattern 1(f): alphabet square 
+
+LOGIC : DIFFERENT PRINT J TYPE CAST WITH (cCHAR)(J+64)* : FOR UPPER CASE
+
+
+FOR LOWER CASE : DIFFERENT : PRINT (cHAR)(J+96)
+
+cout<<(char)(j+64)<<" ";
+cout<<(char)(i+64)<<" ";
+cout<<(char)(j+96)<<" ";
+cout<<(char)(i+96)<<" ";*/
