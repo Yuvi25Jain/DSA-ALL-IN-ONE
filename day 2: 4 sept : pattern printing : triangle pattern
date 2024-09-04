@@ -1,0 +1,266 @@
+TRIANGLE PATTERN: 
+
+pattern 1: star triangle pattern
+*
+**
+***
+****
+
+LOGIC: printing the number of same as row no.
+
+way 1: for(int i=1 ; i<=n; i++){
+        for(int j=1 ; j<=i; j++){
+            cout<<"*";
+        }
+        cout<<endl;
+
+    }
+
+ way 2: 
+  int i = 1;
+
+while(i<=n){
+        int j=1;
+        while(j<=i){
+            cout<<"*";
+            j++;
+
+        }
+        cout<<endl;
+        i++;
+
+    }*/
+-----------------------------------------
+
+   
+   pattern 2:
+   1
+   2 2 
+   3 3 3 
+   4 4 4 4 
+
+   way 1: for(int i=1 ; i<=n; i++){
+        for(int j=1; j<=i; j++){
+            cout<<i<<" ";
+
+        }
+        cout<<endl;
+    }
+
+   way 2:  int i = 1 ;
+    while(i<=n){
+        int j = 1;
+        while(j<=i){
+            cout<<i<<" ";
+            j++;
+
+        }
+        cout<<endl;
+        i++;
+
+    }
+   
+  
+  
+
+  -------------------------------------
+
+  pattern 3
+  1
+  2 3
+  4 5 6
+  7 8 9 10
+  
+  LOGIC: USE THIRD VARIABLE NAME AS COUNT AND INITIALISE WITH 1 AND INCREASE BY 1 ALONG WITH J
+  
+ way 1:  for(int i=1; i<=n; i++){
+        for(int j = 1; j<=i ;j++){
+            cout<<count<<" ";
+            count++;
+
+        }
+        cout<<endl;
+        
+    
+    }
+
+way 2:    int i = 1;
+    while(i<=n){
+        int j=1;
+        while(j<=i){
+            cout<<count<<" ";
+            count++;
+            j++;
+
+        }
+        cout<<endl;
+        i++;
+
+    }
+
+-------------------------------------- 
+
+pattern 4:
+1
+2 3
+3 4 5
+5 6 7 8
+
+LOGIC : before coloum loop take store i value in value variable.
+
+ way 1: int i =1;
+         while(i<=n){
+         int j = 1;
+         int value = i;
+         while(j<=i){
+           cout<<value;
+           value++;
+            j++;
+
+            
+     }
+      cout<<endl;
+      i++;
+
+     }
+    
+   ********REVISE THIS ONCE 
+   way 2: WITHOUT USING VALUE VARIABLE I+J-1
+    
+1   1+1-1 = 1
+23  2+1-1 = 2      2+2-1 = 3
+345 3+1-1 = 3      3+2-1 = 4    3+3-1 = 5
+4567 4+1-1 = 4     4+2-1=5  4+3-1 = 6  4+4-1 = 7*/
+---------------------------------------
+
+pattern 5 : reverse traingle
+1
+2 1
+3 2 1
+4 3 2 1
+
+LOGIC : SIMILAR AS SQUARE REVERSE PATTERN I-J+1 */
+---------------------------------------
+
+patter 6 : same alphabet triangle without using ascii
+
+
+LOGIC: MAPPING : 'A'+I-1
+A
+B B
+C C C
+
+
+for(int i=1 ; i<=n; i++){
+        char ch = 'A'+i-1;
+        for(int j = 1 ; j<=i ; j++){
+          cout<<ch<<" ";
+        }
+        cout<<endl;
+    }
+    
+way 2: by using ascii value typecasting (Char)(i+96)*/
+---------------------------------------
+pattern 7 : 
+A
+B C
+D E F
+G H I J
+
+LOGIC : store 'A' in char datatype varibale then increment by one.
+
+char ch = 'A';
+    
+    for(int i=1 ; i<=n; i++){
+        
+        for(int j = 1 ; j<=i ; j++){
+          cout<<ch<<" ";
+          ch++;
+        }
+        cout<<endl;
+    }
+    
+---------------------------------------
+pattern 8:
+A
+B C
+C D E
+D E F G
+
+LOGIC :  CHAR CH = 'A'+I+J-1
+for(int i=1 ; i<=n; i++){
+        
+        for(int j = 1 ; j<=i ; j++){
+            char ch = 'A'+i+j-2;
+            cout<<ch<<" ";
+          
+          
+        }
+        cout<<endl;
+    }
+-------------------------------------- 
+
+pattern 9 
+D
+C D
+B C D
+A B C D
+
+LOGIC: take start variable 'a'+n-i then start++
+
+for(int j = 1 ; j<=i ; j++){
+            
+            cout<<start<<" ";
+            start++;
+          
+          
+        }
+}
+
+
+---------------------------------------
+pattern 10:
+   *
+  **
+ ***
+****
+
+LOGIC: print space first then print stars here space is n-i then print stars in coloum loop.
+
+for(int i=1 ; i<=n; i++){
+       int space = n-i;
+       while(space){
+        cout<<" ";
+        space--;
+       }
+    
+    
+        
+        for(int j = 1 ; j<=i ; j++){
+            cout<<"*";
+
+            
+            
+        }
+       cout<<endl;
+    }
+
+
+---------------------------------------
+
+pattern 11:
+****
+***
+**
+*
+
+LOGIC : printing stars n-i+1
+MISTAKE: print row or i loop . in which while loop is inside the rowo or i loop. no need of j loop.
+
+for(int i=1 ; i<=n; i++){
+        int star = n-i+1;
+        while(star){
+            cout<<"*";
+            star--;
+        }
+
