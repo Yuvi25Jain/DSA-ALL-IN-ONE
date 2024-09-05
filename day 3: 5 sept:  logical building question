@@ -1,0 +1,73 @@
+ ques1 : decimal to binary conversion
+
+way1: simple approach
+bin[100] is a array which can store 100 elements in binary format
+
+to insert binary values in bin array we are using for loop in which we divide num by 2 and store remainder in the form of 0 or 1 in bin till num is not equal to 0.
+
+now after storing binary nums in bin we are reversing the array 
+
+int num  , count =0 , bin[100];
+cout<<"enter decimal number: ";
+cin>>num;
+for(int i=0 ; num>0; i++){
+bin[i] = num%2;
+num = num/2;
+     count++;
+  cout<<"Binary equivalent is: ";
+ for(int j = count -1 ; j>=0 ; j--){
+    cout<<bin[j];
+ }
+
+way2: use of and and right shift operator.
+
+int bits[32];
+  int i= 0;
+  while(n!=0){
+    //n!=0 means divding the number until the num becomes zero.
+    int bit = n &1 ; //performs the bitwise and operation and effectively extracts the least significant digit.
+    bits[i] = bit;
+    n = n>>1; //n>>1 means n%2
+    i++;
+  }
+  cout<<"binary conversion: "<<endl;
+  //reversing array
+  for(int j= i-1;j>=0 ; j--){
+    cout<<bits[j];
+  }*/
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ ques 2: binary to decimel
+ 
+ int ans = 0;
+  int power = 1;
+  while(n>0){
+    int lastdigit = n%10; //1101 gives 1 then 0 then 1 then 1
+    ans += lastdigit*power;
+    power*=2; //power = power*2
+    n/=10; //n = n/10
+  }
+  cout<<"decimal conversion is: "<<ans<<endl;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ques3 : reverse of integers
+
+statement: given with two cases in which we have to reverse the string for example x = 123 then reverse will be x = 321 
+
+case2 : if output is out of integer range i.e. 2^31 to -2^31 then return 0.
+
+LOGIC lastdigit = n%10;
+ans = ans*10 + lastdigit
+n = n/10
+
+int ans = 0;
+  while(n!=0){
+    int ldigit = n%10;
+    if((ans > INT_MAX)||(ans<  INT_MIN)){
+      cout<<"0";
+    }
+    ans = (ans*10)+ ldigit ; 
+    n = n/10;
+    
+  }
+  cout<<"reversed no: "<<ans;
+   
