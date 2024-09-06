@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+//printing array using display function
+// void display(char a[] ,  int n){
+//     for(int i = 0 ; i<n ; i++){
+//         cout<<a[i]<<" ";
+//     }
+// }
+// int main()
+// {
+//     //initialising and declaration of array
+// //    int b[5] = {1,2,3,4,5};
+// //    display(b,5);
+// //accessing aaray elements
+
+// // for(int i=0 ; i<5; i++){
+// //  cout<<"element at "<<i<<" index is "<<b[i]<<endl;
+// // }
+
+// //size of array
+// // int sizearr = sizeof(b)/sizeof(int);
+// // cout<<"size of array: "<<sizearr<<endl;
+
+// char ch[5] = {'a','e','i','o','u'};
+// display(ch,5);
+
+
+
+
+//   return 0;
+// }
+
+/*ques 1: max and min in an array*/
+
+int main(){
+    int a[5] = {1,2,3,4,5};
+
+    //finding largest element in aaray
+    int max = INT16_MIN ; 
+    
+    for(int i=0 ; i<5 ; i++){
+         if(a[i]>max){
+         max= a[i];
+        
+        } 
+    }
+    cout<<"largest element: "<<max<<endl;
+
+    //finding smallest element in array
+
+    int min = INT16_MAX;
+    for(int i=0 ; i<5 ; i++){
+         if(a[i]<min){
+         min= a[i];
+        
+        } 
+    }
+    cout<<"smallest element: "<<min<<endl;
+    return 0;
+
+
+}
