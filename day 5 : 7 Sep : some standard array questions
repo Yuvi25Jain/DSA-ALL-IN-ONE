@@ -1,0 +1,71 @@
+q5: triplet of number : to print three element whose sum is equal to the given sum
+
+int b[6] = {1,2,3,4,5,3};
+for(int i = 0 ; i<6; i++){
+		for(int j = i+1 ; j<6 ; j++){
+			for(int k = j+1 ; k<6 ; k++){
+				if(b[i]+b[j]+b[k]==s){
+					cout<<b[i]<<" "<<b[j]<<" "<<b[k]<<" ";
+					cout<<endl;
+				}
+			}
+		}
+	}
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+q6: sort of array 0 and 1: 
+
+{0,1,0,1,1,0,1,0} sort to  {0 0 0 0 1 1 1 1}
+
+LOGIC: there are various logic . Eg1 : counting 0 and 1 and then sort them(2 times traverse) , Eg2 : sorting of array , Eg3: two pointer approach (1 time traverse), Eg 4 using here is to 
+arrange all the zeros in left and all 1s in right.
+
+there are two conditions
+1. 0 and 1 is already present at utmost left and right. so we will shift the left++ and right --.
+2. 1 is present at left and 0 is present at right then swap them
+3. i<j should always follow
+
+
+
+
+code: 
+void Sortone(int a[], int n){
+	// i = left and j = right = n-1
+	int i = 0 , j = n-1 ;
+	while(i<j){
+		while(a[i] == 0 && i<j){
+			i++;
+		}
+		while(a[j] == 1 && i<j){
+			j--;
+      	}
+      	if(a[i] == 1 && a[j]== 0 && i<j){
+      		swap(a[i], a[j]);
+      		i++;
+      		j--;
+      		
+	} 
+	}
+	
+}
+
+
+way2: using sorting of array
+void Sortone(int a[], int n){
+    for(int i = 0 ; i < n ; i++){
+        for(int j = i+1 ; j < n ; j++){
+            if(a[i] > a[j]){
+                int temp; 
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+        cout << a[i] << " ";    
+    }
+}
+*/
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
