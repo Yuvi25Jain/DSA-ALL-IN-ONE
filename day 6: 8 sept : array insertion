@@ -1,4 +1,4 @@
-/*q3: inserting element at the beginning of array*/
+q3: inserting element at the beginning of array*/
 
 void insertbegin (int a[] , int n , int element){
 	for(int i = n ; i > 0 ; i--){
@@ -13,3 +13,25 @@ void insertbegin (int a[] , int n , int element){
 	n++;
 	
 }
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+// inserting element at the end of array
+    int n , a[10] , element , i ;
+    cout<<"Enter the size of array: ";
+    cin>>n;
+    cout<<"enter element you want to add at the end : ";
+    cin>>element;
+    cout<<"ENter array element: ";
+    
+    //taking input from user
+    for(i = 0 ; i < n ; i++){
+        cin>>a[i];
+    }
+    a[i] = element;
+    n++;
+
+    cout<<"Array after adding element at the end: ";
+    //displaying array elements:
+    for(i = 0 ; i < n ; i++){
+        cout<<a[i]<<"  ";
+    }
+  
