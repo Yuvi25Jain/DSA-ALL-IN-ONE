@@ -1,0 +1,15 @@
+/*q3: inserting element at the beginning of array*/
+
+void insertbegin (int a[] , int n , int element){
+	for(int i = n ; i > 0 ; i--){
+		
+		//2 3 4 5 6 
+		//over writing the value but storing that index value at previous iteration
+		
+		//
+		a[i] = a[i-1];
+	}
+	a[0] = element;
+	n++;
+	
+}
