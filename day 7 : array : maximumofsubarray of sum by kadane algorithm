@@ -1,0 +1,77 @@
+question : maximum of subarray sum 
+leetcode problem number 53
+
+what is subarray ? set of continuous element in array
+
+eg : {1,2,3,4,5}
+
+subarrays are :1 12 123 1234 12345
+            2 23 234 2345
+            3 34 345
+            4 45
+            5 
+            
+Generallise formulua : n*(n+1)/2 = 5*6/2 = 15 
+
+LOGIC
+step 1: printing the subarray: 
+ print start first (st = 0 ; st<n ; s++)
+    print end (e = st; e<n ; e++)
+    print array(i = start ;  i<=end; i++)
+
+ code:    for(int start = 0 ; start < 5 ; start++){
+        for(int end = start ; end<5 ; end++){
+            for(int i = start ; i<=end ; i++){
+                cout<<a[i];
+            }
+            cout<<" ";
+        }
+        cout<<endl;
+
+    }
+    
+step 2: brute force approach : no need of third loop and hence the optimisation o(n3) changes to o(n2) since only two loops are required.
+
+approach : sum of two continuous subarray is known then add a[end] in it code: int maxSum = INT8_MIN;
+    for(int start = 0 ; start < 5 ; start++){
+        int currentSum = 0 ; 
+        for(int end = start ; end<5 ; end++){
+            currentSum+=a[end];
+            maxSum = max(currentSum,maxSum);
+         }
+    }
+    cout<<"Maximum subarray : "<<maxSum<<endl;
+    
+    
+step 3 : optimise approach use of KADANE'S ALGORITHM: DYNAMIC PROGRAMMING
+
+it works on intution means sum of +ve and +ve number gives +ve number, similarly -ve + +ve : -ve and so on... means sign convention. 
+
+what to do : reset the currentsum if the max sum is -ve . corner case /edge case if all the elements in array are negative then do not need to reset currentsum to zero.
+
+
+PSEUDO CODE: 
+currentSUm = 0 maxSum = INT_MIN
+for(i = 0 ; i<n ; i++){
+curr += a[i]}
+maxSum = max(curr,maxSum)
+if(Current<0){
+current = 0 ;
+}*/
+
+
+CODE OF KADANE ALGORITHM:
+
+int currentSum = 0 , maxSUm = INT16_MIN;
+    for(int i = 0 ; i<5 ; i++){
+        //leetcode :for(int val : nums  )
+           currentSum+=a[i];
+           maxSUm = max(currentSum,maxSUm);
+           if(currentSum<0){
+            currentSum= 0 ;
+           }
+
+        }
+    cout<<"MAximum using kadane algorithm : "<<maxSUm;
+
+TIME COMPLEXCITY: O(N) 
