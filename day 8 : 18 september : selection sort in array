@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+/*SELECTION SORT: in this sort we sort the given array either in increasing or decreasing order . minimum element in array is placed at right places means at left side. for ascending*/
+
+void swap(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+//MISTAKE: you are taking swap data type as int instead of void. also note we can't return two values in int type only one return is allowed
+
+void selectionsort(int a[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int minIndex = i;
+        for (int j = i + 1; j < n; j++) {
+            if (a[j] < a[minIndex]) {
+                minIndex = j;
+            }
+        }
+        swap(a[minIndex], a[i]);
+    }
+}
+
+int main() {
+    int b[10] = {6, 2, 8, 4, 10};
+    selectionsort(b, 5);
+    for (int i = 0; i < 5; i++) {
+        cout << b[i] << " ";
+    }
+    return 0;
+}
