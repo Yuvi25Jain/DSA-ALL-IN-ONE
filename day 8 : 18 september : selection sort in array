@@ -1,7 +1,9 @@
 #include <iostream>
 using namespace std;
 
-/*SELECTION SORT: in this sort we sort the given array either in increasing or decreasing order . minimum element in array is placed at right places means at left side. for ascending*/
+/*SELECTION SORT: in this sort we sort the given array either in increasing or decreasing order . minimum element in array is placed at right places means at left side. for ascending
+
+USE : WHEN ARRAY IS SMALL AND IT IS UNSTABLE SORT*/
 
 void swap(int &a, int &b) {
     int temp = a;
@@ -9,7 +11,7 @@ void swap(int &a, int &b) {
     b = temp;
 }
 //MISTAKE: you are taking swap data type as int instead of void. also note we can't return two values in int type only one return is allowed
-
+//sorting array in ascending order
 void selectionsort(int a[], int n) {
     for (int i = 0; i < n - 1; i++) {
         int minIndex = i;
@@ -22,11 +24,34 @@ void selectionsort(int a[], int n) {
     }
 }
 
+
+//sorting array in descending order means maximum value at right side and small values at rights
+
+void selectionsortDESC(int a[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int maxIndex = i;
+        for (int j = i + 1; j < n; j++) {
+            if (a[j] > a[maxIndex]) {
+                maxIndex = j;
+            }
+        }
+        swap(a[maxIndex], a[i]);
+    }
+}
+
 int main() {
     int b[10] = {6, 2, 8, 4, 10};
+    cout<<"Selection sort in ascending order: ";
+
     selectionsort(b, 5);
     for (int i = 0; i < 5; i++) {
         cout << b[i] << " ";
     }
-    return 0;
+    cout<<endl;
+    cout<<"Sorted in descending order: ";
+    selectionsortDESC(b,5);
+    for (int i = 0; i < 5; i++) {
+        cout << b[i] << " ";
+    }
+    return 0 ;
 }
