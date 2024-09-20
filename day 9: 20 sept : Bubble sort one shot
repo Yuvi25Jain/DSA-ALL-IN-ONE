@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+/*BUBBLE SORT: compares the adjusent or neighbouring element and sort the array . many rounds n-1 in which sorted 1st,2nd,3rd largest and so on elements 
+
+KEY FEATURES OF BUBBLE SORT : bubble means weak so only adjustment element comparison + ith element at ith index
+1. stable sort : doesn't change the reference of elements
+2. in place sort : means no extra memory is required to swap the elements*/
+/*3. read about time and space complexcity from notes*/
+
+//bubble sort ascending
+void bubblesort(int a[], int n){ 
+    for(int i = 0 ; i<n-1;i++){
+        //round 1 to n-1 
+        //NOTE i = 1 to n is also correct , can be used
+        for(int j = 0 ; j<n-i-1 ; j++){
+            if(a[j]>a[j+1]){
+                swap(a[j], a[j+1]);
+            }
+        }
+        //if i = 1 to n then j will become 0 to n-1
+    }
+    cout<<"Sorting using bubble sort : ";
+}
+
+//bubble sort descending
+void bubblesortdesce(int a[], int n){ 
+    for(int i = 1 ; i<n;i++){
+        for(int j = 0 ; j<n-i ; j++){
+            if(a[j]<a[j+1]){
+                swap(a[j], a[j+1]);
+            }
+        }
+        
+    }
+    cout<<"Sorting using bubble sort in descending order : ";
+}
+
+
+int main()
+{
+    int b[6] = {1,7,6,10,9,12};
+    //printing ascending array
+    bubblesort(b,6);
+    for(int i = 0 ; i<6 ; i++){
+        cout<<b[i]<<" ";
+    }
+    cout<<endl;
+    //printing descending array
+    bubblesortdesce(b,6);
+    for(int i = 0 ; i<6 ; i++){
+        cout<<b[i]<<" ";
+    }
+    
+    
+  return 0;
+}
