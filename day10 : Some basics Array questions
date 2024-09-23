@@ -1,0 +1,63 @@
+q1: reverse of an array : swaping element (a[s],a[e]) till s<=e. as ususal s =0 and e = n-1. increment i and j.
+q2 : merge sorted array : given two array . unioun of both aray in third array: solution or logic : since 3 array so three index i,j,k . 3 while loop i<n and j<m then single i.e i<n and j<m.
+q3 : move zeroes to right side : array 0 elements swap to right side. ignore 0 and if !=0 then swap.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+q1. Reverse of an array : 
+
+  void reversearray(int a[], int n){
+    int s = 0 , e = n-1 ;
+    while(s<=e){
+        swap(a[s], a[e]);
+        s++;
+        e-- ; 
+    }
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+q2 . merge of sorted array :
+
+void merge(int a1[], int n , int a2[], int m , int a3[]){
+    int i = 0 , j = 0 , k = 0 ;
+    while(i<n && j<m){
+        if(a1[i]<a2[j]){
+            a3[k] = a1[i] ;
+            k++;
+            i++ ;
+
+
+        }
+        else{
+            a3[k] = a2[j];
+            k++;
+            j++;
+        }
+    }
+    while(i<n){
+        a3[k] = a1[i];
+        k++ ; 
+        i++ ;
+
+    }
+    while(j<m){
+        a3[k] = a2[j];
+        k++;
+        j++;
+    }
+
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+q3. move zeroes to right side positon
+
+  void movezeroes(int a[], int n){
+    int i = 0 ;
+    for(int j = 0 ; j < n ; j++){
+        if(a[j]!=0){
+            swap(a[j], a[i]);
+            i++;
+        }
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
