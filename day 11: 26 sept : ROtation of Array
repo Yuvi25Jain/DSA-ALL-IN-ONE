@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std ; 
+
+void rotateArray(int arr[], int n, int d, char direction) {
+    // Rotate array by d places in the specified direction
+    if (direction == 'l' || direction == 'L') { // Left rotation
+        for (int i = 0; i < d; i++) {
+            int temp = arr[0];
+            for (int j = 0; j < n - 1; j++) {
+                arr[j] = arr[j + 1];
+            }
+            arr[n - 1] = temp;
+        }
+    } else if (direction == 'r' || direction == 'R') { // Right rotation
+        for (int i = 0; i < d; i++) {
+            int temp = arr[n - 1];
+            for (int j = n - 1; j > 0; j--) {
+                arr[j] = arr[j - 1];
+            }
+            arr[0] = temp;
+        }
+    }
+}
+
+void printArray(int arr[], int n) {
+    // Print the array
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    cout<<"Size of array : "<<n<<endl;
+    int d = 3; // Number of places to rotate
+    char direction = 'r'; // 'l' for left, 'r' for right
+
+    cout << "Original array: ";
+    printArray(arr, n);
+
+    rotateArray(arr, n, d, direction);
+
+
+
+  if (direction == 'l' || direction == 'L'): This checks if the direction parameter is either 'l' (lowercase L) or 'L' (uppercase L), indicating a left rotation.
+for (int i = 0; i < d; i++): This loop will iterate d times, where d is the number of places to rotate the array.
+int temp = arr[0];: This line stores the first element of the array (arr[0]) in a temporary variable temp. This is because we'll be shifting the elements of the array, and we need to keep track of the first element.
+for (int j = 0; j < n - 1; j++): This inner loop will iterate n - 1 times, where n is the size of the array. This loop will shift the elements of the array to the left.
+arr[j] = arr[j + 1];: This line shifts the element at index j to the left by assigning the value of the next element (arr[j + 1]) to it.
+arr[n - 1] = temp;: After the inner loop finishes, we assign the value of the temporary variable temp (which holds the original first element) to the last element of the array (arr[n - 1]). This effectively "rotates" the array to the left by one position.
+
+    cout << "Rotated array: ";
+    printArray(arr, n);
+
+    return 0;
+}
