@@ -1,0 +1,171 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+ finding length of string
+int length(char name[]){
+    //here we don't need to tell size of aray
+    int count = 0 ;
+    for(int i =0 ; name[i]!=0 ; i++){
+        count ++ ; 
+    }
+    return count;
+}
+5. rervse of an string
+void reversestring(char name[], int n){
+    int s = 0 ;
+    int e = n-1 ; 
+    while(s<=e){
+        swap(name[s++],name[e--]);
+    }
+}
+6. check palindrome : palindrome means original string == reversed string CASE SENSITIVE
+bool checkPalindrome(char c[], int n){
+    int s = 0 ;
+    int e = n-1 ;
+    while(s<=e){
+        //means element not equal so not palindrome false
+        if(c[s]!=c[e]){
+            return 0 ; 
+        }
+        else{
+            s++ ; 
+            e--;
+
+
+        }
+    }
+    return 1 ; 
+
+}
+7. NON CASE SENSITIVE PALINDROME:  will create a function which convert upper case to lower case and return lower case as it is.
+
+
+then slight change in palindrome tolower a[s] != tolower a[e]
+char lowercase(char ch){
+    if(ch>= 'a' && ch <= 'z'){
+        return ch ; 
+    }
+    else{
+        char temp = ch - 'A'+'a';
+        return temp ;
+    }
+}
+8. string maximum tym occuring element
+
+1. sstore count of each element
+2. now store that index which is maximum
+
+char getMaxoccur(string s){
+    //initialse array element with 0 to count the frequenct of elements
+    int a[26] = {0};
+    //array of count of char
+    for(int i = 0 ; i<s.length();i++){
+        char ch = s[i];
+        int num = 0 ;
+
+        //eg : ch = b , b is mp with 2 then b - 'a' = 2-1 = 1 so count of b is 1
+        num = ch -'a';
+        a[num]++;
+    }
+
+    //find maximum occur character
+    int maxi = -1 , ans = 0;
+    for(int i =0 ; i<26; i++){
+        if(maxi < a[i]){
+            ans = i ;
+            maxi = a[i];
+        }
+
+    }
+    char finalAns = 'a'+ ans;
+    return finalAns ;
+    
+    
+}
+
+9. code studio problem :  replace spces with @40
+
+string replace(string s){
+    //creating separate temp string
+    string temp = " ";
+    for(int i = 0 ; i<s.length();i++){
+        //NOTE : TO COMPARE STRING USE SINGLE QUOTES INSTEAD OF DOUBLE QUOTES
+        if(s[i] == ' '){
+            temp.push_back('@');
+            temp.push_back('4');
+            temp.push_back('0');
+
+
+        }
+        else{
+            temp.push_back(s[i]);
+        }
+    }
+    return temp;
+
+}
+
+
+
+
+int main()
+{
+    //1. declare , intialise array
+    char name[10] ;
+    //2. taking char array input from user
+    cout<<"Enter your name: "<<endl;
+    cin>>name;
+    // name[2] = '\0';
+    //3. display char array
+    cout<<"Your name is " <<name<<endl;
+    int len = length(name);
+    //4. using function getlength
+    cout<<"Length of given char array is: "<<len<<endl;
+    //5. calling reverse of string fucntion
+    reversestring(name, len);
+    cout<<"Your reversed name is:   " <<name<<endl;
+
+    //6 to check palindrome
+    cout<<"Palindrome or not: "<<checkPalindrome(name,len)<<endl;
+
+    //7. to lower case convertor for non case sensitive of palindrome
+
+    cout<<"Character is: "<<lowercase('B')<<endl;
+    // NOTE : string ignore null character and char array include nill character
+
+    string name1 = {"Yuvanshi"};
+    name[2] = '\0';
+    cout<<"string name  " <<name1<<endl;
+
+    char name2[] = {"Yuvi"};
+    name2[2] = '\0';
+    cout<<"char  name array " <<name2<<endl;
+
+    //palindrome of num array
+
+    int a[4] = {1,0,0,1};
+
+    for(int i = 0 ; i <4 ; i++){
+        int s = 0 ;
+        int e ; 
+    }
+    //8. string maximum occuring element
+    string s ;
+    cout<<"Enter string: "<<endl;
+    cin>>s;
+    cout<<"You have entred: " <<s<<endl;
+    cout<<getMaxoccur(s);
+    /*9. code studio problem :  replace spces with @40
+*/
+string result = replace(s);
+cout<<"replacced string" <<result<<endl;
+
+
+
+
+
+
+
+  return 0;
+}
