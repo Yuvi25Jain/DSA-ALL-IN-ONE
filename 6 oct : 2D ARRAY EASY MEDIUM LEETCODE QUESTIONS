@@ -1,0 +1,138 @@
+//1. wave print : for even index coloum = top to bootom and for odd index coloum it bottom to up.
+
+#include <bits/stdc++.h> 
+vector<int> wavePrint(vector<vector<int>> arr, int nRows, int mCols)
+{
+    //Write your code here
+    vector<int> ans ;
+    for(int col = 0 ; col <mCols ; col++){
+        if(col&1){
+            //odd index : bottom to up
+            for(int row = nRows-1 ; row>=0 ; row--){
+                ans.push_back(arr[row][col]);
+            }
+        }
+        else{
+            //even index : top to bottom
+            for(int row =0 ; row < nRows ; row++){
+                ans.push_back(arr[row][col]);
+
+            }
+        }
+    }
+    return ans;
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//q2 : leetcode 54 spiral question
+
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        vector<int> ans ;
+        int row = matrix.size();
+        int col = matrix[0].size();
+        int count = 0 ;
+        int total = row*col ;
+        //index intialise
+        int startrow = 0 ;
+        int startcol = 0 ;
+        int endcol = col-1 ;
+        int endrow = row-1 ;
+        while(count<total){
+            //print start row
+            for(int index = startcol ; count<total && index <= endcol ; index++){
+                ans.push_back(matrix[startrow][index]);
+                count++;
+            }
+            startrow++ ;
+
+            //print end col
+            for(int index = startrow ; count<total && index <= endrow ; index++){
+                ans.push_back(matrix[index][endcol]);
+                count++;
+            }
+            endcol-- ; 
+
+            //print end row
+            for(int index = endcol ; count<total && index >= startcol ; index--){
+                ans.push_back(matrix[endrow][index]);
+                count++;
+            }
+            endrow-- ;
+
+            //print start col
+            for(int index = endrow ; count<total && index >= startrow ; index--){
+                ans.push_back(matrix[index][startcol]);
+                count++;
+            }
+            startcol++ ;
+        }
+        return ans ; 
+        
+    }
+};
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//q3 : leetcode 74 : search a 2d matrix part 1 or binary search in 2d array : 
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        //no of rows
+        int row = matrix.size() ;
+        //no of col
+        int col = matrix[0].size() ;
+
+        int s = 0 ;
+        int e = row*col - 1 ;
+        int mid = s + (e-s)/2;
+        while(s<=e){
+            int element = matrix[mid/col][mid%col];
+            //row = quotient : index in linear search / no of coloum
+            //col = remainder 
+            if(element == target){
+                return 1 ;
+            }
+            else if(element < target){
+                s = mid + 1 ;
+            }
+            else{
+                e = mid -1 ;
+            }
+            mid = s + (e-s)/2;
+        }
+        return 0 ;
+    }
+};
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//q4 : leetcode 240 : search a 2d matrix part 2 or binary search in 2d array :
+
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        //no of row
+        int row = matrix.size();
+        //no of col
+        int col = matrix[0].size();
+
+        int rowIndex = 0 ;
+        int colIndex = col-1 ;
+
+        while(rowIndex < row && colIndex>=0){
+            int element = matrix[rowIndex][colIndex];
+            if(element == target){
+                return 1;
+            }
+            if(element < target){
+                rowIndex++;
+            }
+            else{
+                colIndex-- ;
+            }
+           
+        }
+       return 0 ; 
+    }
+     
+};
