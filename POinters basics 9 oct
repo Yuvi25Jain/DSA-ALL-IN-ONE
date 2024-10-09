@@ -1,0 +1,54 @@
+SOme key points for pointers
+
+1. pointer stores address with the help of & adrdress of.
+
+2. NOTE : *ptr : value at pointer and ptr gives value's address.
+
+
+3: creatig pointer : ptr is a pointer to int
+
+4: size of pointer : pointer size is always 8 which stores address only irrespective of data type. excpeth integer which is 4.
+
+
+5. int = 5;
+int *p = &i;
+
+or another way
+
+int *p = 0 : null pointer
+p = &i;
+ 
+
+6. note (*p)++ does not work with cout we need to write it separately
+
+7. copying value of one pointer into another
+
+inside main : 
+int i = 25;
+int *p = 0 ;
+p = &i;
+ cout<<"Pointer address : "<<p<<endl;
+ cout<<"print num using pointer: "<<*p<<endl;
+cout<<"Before increment: "<<i<<endl;
+*p = *p+2; 
+cout<<"After increment: "<<i<<endl;
+
+ copying a pointer
+int *q = p ;
+cout<<p<<" = "<<q<<endl;
+cout<<*p<<" = "<<*q<<endl;
+
+//8. important concept:
+int *t = &i;
+*t = *t+1;
+cout<<*t<<endl;
+cout<<"Before t: "<<t<<endl;
+t = t+1 ;
+cout<<"After t: "<<t<<endl; //4 bytes age
+
+
+
+
+
+
+
