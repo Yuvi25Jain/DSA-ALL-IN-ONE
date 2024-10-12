@@ -1,0 +1,26 @@
+1. what is reference variable: 
+shortcut or a second name for the same memory location. This is useful in functions to avoid copying large amounts of data and to directly modify the original data
+
+
+2. creating reference variable: 
+
+int i = 25 ;
+    int& j = i;
+    cout<<i<<endl;
+    cout<<j<<endl;
+    i++;
+    cout<<i<<endl; //26
+    j++;
+    cout<<j<<endl; //27
+    
+
+
+3. why reference variable needed?
+ it works on call by reference : without creating new memory it created new variable
+
+void update(int& n){
+    n++;
+    cout<<"After execution of call by reference: "<<n<<endl;
+}
+
+NOTE : CALL BY VALUE JUST create new memory and copied the contains*/
