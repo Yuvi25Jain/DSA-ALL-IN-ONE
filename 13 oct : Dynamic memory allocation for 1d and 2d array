@@ -1,0 +1,152 @@
+1. creating 1d array dynamically using dynamic memory allocation:
+
+int* arr = new int[n] ;
+
+input : 
+void input(int a[], int n){
+    cout<<"Enter the array element: "<<endl;
+    for(int i = 0 ; i<n; i++){
+        cin>>a[i];
+
+    }
+    cout<<endl;
+}
+
+output: 
+void output(int a[], int n){
+    cout<<"You have entered the following array :  "<<endl;
+    for(int i = 0 ; i<n; i++){
+        cout<<a[i]<<" ";
+
+    }
+    cout<<endl;
+}
+
+  NOTE :  IT IS IMP IN DYNAMIC /HEAP  MEMORY ALLOCATION TO RELEASE MEMORY MANUALLY.
+
+  delete []a ;
+  
+            
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Creating 2D array using dynamic memory allocation:
+
+int n , m ;
+    cout<<"Enter no of row and coloum n = m or n*n : "<<endl;
+    cin>>n;
+
+    //create 2d dyanamic array
+    int** a = new int*[n];
+    for(int i = 0 ; i<n ; i++){
+        a[i] = new int[n];
+
+
+    }
+    cout<<"You have created 2d array now entered the elements: "<<endl;
+
+    //taking input of 2d array
+     for(int i = 0 ; i<n ; i++){
+        for(int j = 0 ; j<n ; j++){
+            cin>>a[i][j];
+        }
+    }
+    
+cout<<"You have entered: "<<endl;
+    //printing output of 2d array
+    cout<<endl;
+    
+     for(int i = 0 ; i<n ; i++){
+        for(int j = 0 ; j<n ; j++){
+            cout<<a[i][j]<<" ";
+            ;
+        }
+    }
+    cout<<endl;
+
+
+if there are different no of row and colo for eg 3*4 then i<r , j<c 
+ NOTE :  IT IS IMP IN DYNAMIC /HEAP  MEMORY ALLOCATION TO RELEASE MEMORY MANUALLY.
+
+ for(int i = 0 ; i<r ; i++){
+ delete [] a[i] ;
+ }
+ delete []a ;
+
+
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 3. type of 2d array :  JAGGERED ARRAY: rows have different number of coloum .
+
+ Creating a jagged array in C++ using dynamic memory involves a few steps. A jagged array is essentially an array of arrays where each "row" can have a different number of columns. Here's a simple example to illustrate how you can do this:
+
+1. **Allocate memory for the number of rows**.
+2. **Allocate memory for each row with a different number of columns**.
+
+Here's a sample code snippet:
+
+```cpp
+#include <iostream>
+
+int main() {
+    int rows = 3; // Number of rows
+    int* cols = new int[rows]; // Array to store the number of columns for each row
+
+    // Define the number of columns for each row
+    cols[0] = 3;
+    cols[1] = 5;
+    cols[2] = 2;
+
+    // Allocate memory for the jagged array
+    int** jaggedArray = new int*[rows];
+    for (int i = 0; i < rows; ++i) {
+        jaggedArray[i] = new int[cols[i]];
+    }
+
+    // Example: Initialize the jagged array with some values
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols[i]; ++j) {
+            jaggedArray[i][j] = i + j; // Just an example initialization
+        }
+    }
+
+    // Print the jagged array
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols[i]; ++j) {
+            std::cout << jaggedArray[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    // Deallocate memory
+    for (int i = 0; i < rows; ++i) {
+        delete[] jaggedArray[i];
+    }
+    delete[] jaggedArray;
+    delete[] cols;
+
+    return 0;
+}
+```
+
+In this example:
+- We first allocate memory for the number of rows.
+- Then, for each row, we allocate memory for the columns.
+- Finally, we initialize and print the jagged array, and don't forget to deallocate the memory to avoid memory leaks.
+
+This approach ensures efficient memory usage and allows for flexibility in the number of columns per row¹².
+
+Feel free to ask if you have any questions or need further assistance!
+
+Source: Conversation with Copilot, 13/10/2024
+(1) How to use a jagged 2D dynamic array with variable column sizes - Educative. https://www.educative.io/answers/how-to-use-a-jagged-2d-dynamic-array-with-variable-column-sizes.
+(2) Jagged 2D Dynamic Array with Variable Column Sizes. https://www.educative.io/courses/cpp-programming-experienced-devs/jagged-2d-dynamic-array-with-variable-column-sizes.
+(3) Dynamic memory allocation in C++ for 2D and 3D array. https://www.techiedelight.com/dynamic-memory-allocation-in-c-for-2d-3d-array.
+(4) Jagged Array - CodeLikeChamp. https://codelikechamp.com/jagged-array/.
+(5) 19.2 — Dynamically allocating arrays – Learn C++ - LearnCpp.com. https://www.learncpp.com/cpp-tutorial/dynamically-allocating-arrays/.
+
+ 
+ 
+
+
+
