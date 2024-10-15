@@ -1,0 +1,33 @@
+PILLAR1: ENCAPSULATION:
+Implementation of encapsulation : wrap up of data members and member function in single entity for more theory check in copy on date 15 oct.
+class Student{
+    private:
+    string name;
+    int age;
+    int marks;
+    public:
+    int getage(){
+        cout<<"You are in getage function";
+        return this->age;
+    }
+};
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+PILLAR 2: INHERITAANE
+
+/single inheritance : one base class and one derived class
+class Vehicle{
+    public:
+    char color;
+    int quantity;
+    public:
+        void display(){
+            cout<<"You are in vehicle class"<<endl;
+        }
+
+};
+
+class bmw : public Vehicle{
+
+};
