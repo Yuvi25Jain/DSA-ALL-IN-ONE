@@ -2,7 +2,7 @@ recursion problem 1 : factorial of a number
 
 int fact(int n){
 
-    //base case
+    //base case 
     if(n==0){
         return 1;
     }
