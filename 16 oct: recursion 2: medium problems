@@ -1,0 +1,43 @@
+problem 5: fibonacci
+int fibo(int n){
+    if(n ==0){
+        return 0;
+    }
+    if(n == 1){
+        return 1;
+    }
+    else{
+        return fibo(n-1)+ fibo(n-2);
+    }
+
+}
+
+------------------------------------------------------------------------------------------------63. climb stair
+int countDistinctWays(int nStairs) {
+    if(nStairs < 0){
+        return 0 ;
+    }
+    if(nStairs == 0){
+        return 1;
+    }
+    int ans = countDistinctWays(nStairs-1 ) + countDistinctWays(nStairs - 2);
+    return ans;
+    ------------------------------------------------------------------------------------------------
+
+    
+
+    
+7. saying word
+
+void saydigit(int n, string a[]){
+    //base class
+    if(n==0){
+        return ;
+    }
+    int digit = n%10;
+    n = n/10;
+    saydigit( n, a);
+    cout<<a[digit]<<" ";
+
+
+}
