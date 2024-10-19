@@ -1,0 +1,53 @@
+q1: reverse of string
+void reverse(int i , int j , string& s){
+    if(i>j){
+        return ;
+    }
+    else{
+        swap(s[i] , s[j]);
+        i++;
+        j--;
+        reverse(i,j,s);
+    }
+}
+note : call by value means simple string s does not reverse the string it just creates the copy , use string& to call by reference.
+
+
+q2: reverse of string
+bool checkpalindrome(int i , int j , string s){
+    if(i>j){
+        return true;
+    }
+    if(s[i] != s[j]){
+        return false;
+    }
+    else{
+        return checkpalindrome(i+1,j-1,s);
+    }
+
+}
+
+q3. int power(int a, int b){
+    //base case if power is 0 then 1 and 1 is a
+    if(b == 0){
+        return 1;
+    }
+    if(b ==1 ){
+        return a;
+    }
+    //recursive call
+    int ans = power(a, b/2);
+    //if b is even 
+    if(b%2 == 0){
+        return ans*ans;
+    }
+    else{
+        //b is odd
+        return a*ans*ans;
+    }
+}
+
+
+
+
+
