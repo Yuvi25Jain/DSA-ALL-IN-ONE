@@ -1,0 +1,86 @@
+#include <iostream>
+using namespace std;
+
+//stack : non primitive , non linear data strucuture which works on LIFO : last in first out can be use using three ways stl , array and linked list. consider empty if the top == -1
+
+class Stack{
+    public:
+    int size;
+    int *a;
+    int top;
+
+    Stack(int size){
+        this ->size = size;
+        a = new int[size];
+        top = -1 ; //consider stack to be empty
+    }
+    
+    void push(int element){
+        if(size-top >1){
+            top++;
+            a[top] = element;
+        }
+        else{
+            cout<<"Stack overflow "<<endl;
+        }
+    }
+    void pop(){
+        if(top>=0){
+            top--;
+        }
+        else{
+            cout<<"Stack underflow "<<endl;
+        }
+    }
+    int peek(){
+        if(top>=0){
+            return a[top];
+        }
+        else{
+            cout<<"Stack is empty"<<endl;
+            return -1;
+        }
+    }
+    bool isEmpty(){
+        if(top == -1 ){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+};
+int main()
+{
+    Stack st(5);
+
+    st.push(22);
+    st.push(43);
+    st.push(44);
+    st.push(22);
+    st.push(43);
+    st.push(44);
+
+    cout << st.peek() << endl;
+
+    st.pop();
+
+    cout << st.peek() << endl;
+
+    st.pop();
+
+    cout << st.peek() << endl;
+
+    st.pop();
+
+    cout << st.peek() << endl;
+
+    if(st.isEmpty()) {
+        cout << "Stack is Empty mere dost " << endl;
+    }
+    else{
+        cout << "Stack is not Empty mere dost " << endl;
+    }
+
+  return 0;
+}
