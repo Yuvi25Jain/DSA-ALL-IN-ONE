@@ -1,0 +1,127 @@
+#include <iostream>
+using namespace std;
+class dqueuee {
+    int *a;
+    int f  ;
+    int r  ;
+    int size  ;
+    public: 
+    dqueuee(){
+        size = 10;
+
+        a = new int [size];
+        f = -1 ;
+        r = -1 ;
+
+    }
+    
+    int push_front(int x){
+        //queue is full
+        if((f ==  0 && r == size-1 ) || (r == (f-1)%(size-1))){
+            cout<<"Queue is full no more to add"<<endl;
+        }
+        //first element to insert
+        else if(f == -1){
+            f = r = 0 ;
+
+        }
+        //to maintain cyclic nature
+        else if( f == 0 && r != size-1 ){
+            f = size-1 ;
+        }
+        else{
+            f--;
+        }
+        a[f] = x ;
+
+
+    }
+    int  push_back(int x){
+        //queue is full
+        if((f ==  0 && r == size-1 ) || (r == (f-1)%(size-1))){
+            cout<<"Queue is full no more to add"<<endl;
+        }
+        else if(r == size -1 && f!=0){
+            r = 0 ;
+        }
+        else if(f == -1){
+            f = r= 0 ;
+        }
+        else{
+            r++ ; 
+        }
+        a[f] = x ;
+
+
+    }
+    int  pop_front(){
+        // check if queue is empty
+        if(f == -1){
+            cout<<"Queue is empty "<<endl;
+        }
+        int ans = a[f] ;
+        a[f]  = -1 ;
+        if(f == r){ //single element is present
+            f = r = -1 ;
+        }
+        else if( f == size -1 ){
+            f = 0 ; //to maintain cyclic order
+        }
+        else{
+            front ++ ;
+        }
+        return ans ; 
+
+    }
+
+     int pop_back(){
+
+        if(f == -1){
+            cout<<"Queue is empty "<<endl;
+        }
+        int ans = a[r] ;
+        a[r]  = -1 ;
+        if(f == r){ //single element is present
+            f = r = -1 ;
+        }
+        else if(r == 0){
+            r = size - 1 ;
+        }
+        else{
+            r-- ; 
+        }
+    }
+
+    void printqueue() {
+        if (f == -1) {
+            cout << "Queue is empty" << endl;
+            return;
+        }
+        cout << "Queue content: ";
+        int i = f;
+        while (true) {
+            cout << a[i] << " ";
+            if (i == r) break; // Stop when we reach the rear
+            i = (i + 1) % size; // Move to the next index
+        }
+        cout << endl;
+    }
+};
+
+
+
+
+
+
+
+
+int main()
+{
+    dqueuee d;
+    d.push_front(22);
+    d.push_front(20); // 20 22 
+    d.push_front(19); // 19 20 22
+    d.printqueue() ; // 19 20 22
+
+  return 0;
+}
