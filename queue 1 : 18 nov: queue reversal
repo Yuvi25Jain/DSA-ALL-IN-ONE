@@ -1,3 +1,5 @@
+method 1 using stack
+
 #include <iostream>
 #include <queue>
 #include <stack>
@@ -50,4 +52,22 @@ int main() {
     cout << endl;
 
     return 0;
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+method 2 using recursion
+
+
+void qrev(queue <int>& q){
+    //q is empty
+    if(q.empty()){
+        return ;
+
+    }
+    else{
+        int front = q.front();
+        q.pop() ;
+        qrev(q);
+        q.push(front);
+    }
 }
