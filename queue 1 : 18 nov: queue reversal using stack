@@ -1,0 +1,53 @@
+#include <iostream>
+#include <queue>
+#include <stack>
+
+using namespace std;
+
+void qreve(queue<int>& q) {
+    stack<int> s;
+
+    while (!q.empty()) {
+        int element = q.front();
+        q.pop();
+        s.push(element);
+    }
+    while (!s.empty()) {
+        int element = s.top();
+        s.pop();
+        q.push(element);
+    }
+}
+
+int main() {
+    queue<int> qr;
+
+    qr.push(10);
+    qr.push(20);
+    qr.push(30);
+    qr.push(40);
+    qr.push(50);
+    qr.push(60);
+
+    cout << "Your entered queue is: " << endl;
+
+    // Print the original queue
+    queue<int> temp = qr; // Create a temporary queue to print
+    while (!temp.empty()) {
+        cout << temp.front() << " ";
+        temp.pop();
+    }
+    cout << endl;
+
+    // Reverse the queue
+    qreve(qr);
+
+    cout << "Reversed queue is: " << endl;
+    while (!qr.empty()) {
+        cout << qr.front() << " ";
+        qr.pop();
+    }
+    cout << endl;
+
+    return 0;
+}
