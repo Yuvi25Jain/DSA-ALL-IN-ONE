@@ -1,0 +1,53 @@
+1. creation of double ended ll : 3 part for data , next node address and previous node address
+class Node{
+    public:
+    int data ;
+    Node* prev;
+    Node* next ;
+
+    Node(int data){
+        this->data = data;
+        this->prev = NULL;
+        this->next = NULL;
+    }
+    
+};
+-------------------------------------------------------------------------------------------------------------
+2.  traversal or printing of list
+
+void print(Node* head){
+        Node* temp = head;
+        while(temp != NULL){
+            cout<<temp->data<<" ";
+            temp = temp->next;
+        }
+        cout<<endl;
+}
+ 
+----------------------------------------------------------------------------------------------------------------
+3. length of linked list
+
+int getlen(Node* head){
+    int len =  0;
+    Node* temp = head;
+    while(temp != NULL){
+        len++;
+        temp = temp->next;
+    }
+    return len;
+}
+-----------------------------------------------------------------------------------------------------------------
+
+4.  insertion at begin.
+
+void insertbegin(Node* &head, int d){
+    Node* temp = new Node(d);
+    temp->next = head;
+    head->prev = temp ;
+    head = temp ;
+
+
+}
+
+previous wali is temp and next node is head
+----------------------------------------------------------------------------------------------------------------------
