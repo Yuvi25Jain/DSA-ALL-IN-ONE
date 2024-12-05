@@ -1,0 +1,104 @@
+#include <iostream>
+using namespace std;
+
+class Node{
+    public:
+    int data ;
+    Node* next; 
+    //constructor
+    Node(int d){
+        this->data = d;
+        this->next = NULL;
+    }
+    ~Node(){
+        int value = this->data;
+        if(this->next != NULL){
+            delete next;
+            next = NULL;
+        }
+        cout<<"Memory is free with node data"<<value<<endl;
+    }
+};
+//no use of head pointer . use tail only as we can access last and first node
+
+
+
+
+void insertbegin(Node* &tail , int element , int d){
+    //empty list
+    if(tail == NULL){
+        Node* newNode = new Node(d);
+        tail = newNode;
+        newNode ->next = newNode;
+    }
+    else{
+        //element use for travesal until we find element till then will increase the current next
+
+        Node* curr = tail;
+        while(curr->data != element){
+            curr = curr->next;
+        }
+        //element found 
+        Node* temp = new Node(d);
+        temp->next = curr->next; //between element and next node
+        curr ->next = temp ; 
+
+    }
+
+}
+
+
+
+//using do while loop to print
+
+void print(Node* &tail){
+    Node* temp = tail;
+    do{
+        cout<<tail->data<<" "<<endl;
+        tail = tail->next;
+
+    }while(tail != temp);
+    cout<<endl;
+}
+
+void delete(Node* &tail, int value){
+    //empty list
+    if(tail == NULL){
+        cout<<"List is empty"<<endl;
+        return;
+    }
+    //non empty , assuming value is present in ll
+    else{
+        Node* prev = tail;
+        Node* curr = prev->next;
+        while(curr->data != value){
+            prev = curr;
+            curr = curr->next;
+
+
+        }
+        prev ->next = curr ->next;
+        curr->next = NULL;
+        delete curr;
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+int main()
+{
+    Node* tail = NULL;
+    insertbegin(tail,1,25);
+    print(tail);
+  return 0;
+}
